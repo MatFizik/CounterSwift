@@ -7,21 +7,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CounterViewController: UIViewController {
 
-    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak private var countLabel: UILabel!
     
-    @IBOutlet weak var plusButton: UIButton!
-    @IBOutlet weak var minusButton: UIButton!
-    @IBOutlet weak var trashButton: UIButton!
+    @IBOutlet weak private var plusButton: UIButton!
+    @IBOutlet weak private var minusButton: UIButton!
+    @IBOutlet weak private var trashButton: UIButton!
     
-    @IBOutlet weak var historyTextView: UITextView!
+    @IBOutlet weak private var historyTextView: UITextView!
     
-    var currentCount: Int = 0
+    private var currentCount: Int = 0
     
-    var history: [String] = []
+    private var history: [String] = []
     
-    let dateFormatter = DateFormatter()
+    private let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
 
     
-    @IBAction func plusButtonDidTap() {
+    @IBAction private func plusButtonDidTap() {
         currentCount += 1
         countLabel.text = "\(currentCount)"
         
@@ -41,8 +41,8 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func minusButtonDidTap() {
-        if(currentCount < 1){
+    @IBAction private func minusButtonDidTap() {
+        if currentCount < 1 {
             history.insert("[\(dateFormatter.string(from: Date()))]: попытка уменьшить значение счётчика ниже 0", at: 0)
         } else {
             currentCount -= 1
@@ -51,13 +51,11 @@ class ViewController: UIViewController {
             history.insert("[\(dateFormatter.string(from: Date()))]: значение изменено на -1", at: 0)
         }
         
-        
         historyTextView.text = history.joined(separator: "\n")
-        
     }
     
-    @IBAction func trashButtonDidTap() {
-        if(currentCount > 0){
+    @IBAction private func trashButtonDidTap() {
+        if currentCount > 0 {
             currentCount = 0
             countLabel.text = "\(currentCount)"
             history.insert("[\(dateFormatter.string(from: Date()))]: значение сброшено", at: 0)
