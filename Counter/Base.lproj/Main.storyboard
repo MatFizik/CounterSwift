@@ -1,24 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Counter View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CounterViewController" customModule="Counter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OsS-uh-IEf">
+                                <rect key="frame" x="265" y="684" width="68" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="68" id="BJL-Mx-yn1"/>
+                                    <constraint firstAttribute="height" constant="68" id="W3X-QI-DGR"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="+">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
+                                    <color key="baseBackgroundColor" red="0.89411771299999998" green="0.45098042490000001" blue="0.43921568989999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="plusButtonDidTap" destination="BYZ-38-t0r" eventType="touchUpInside" id="eak-gf-IeJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0e-D6-etf">
+                                <rect key="frame" x="60" y="684" width="68" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="68" id="DVo-tw-bSI"/>
+                                    <constraint firstAttribute="height" constant="68" id="qi9-UG-OaB"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="-">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="minusButtonDidTap" destination="BYZ-38-t0r" eventType="touchUpInside" id="HVL-3q-X53"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Значение счётчика:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfH-ot-qTD">
+                                <rect key="frame" x="118" y="344" width="162" height="21"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4M3-qJ-fos">
+                                <rect key="frame" x="187" y="400" width="19" height="36"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xh-od-Kds">
+                                <rect key="frame" x="172.66666666666666" y="717" width="48" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="trash.fill" catalog="system">
+                                    <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="trashButtonDidTap" destination="BYZ-38-t0r" eventType="touchUpInside" id="pxF-gF-6Fu"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" contentMode="bottom" semanticContentAttribute="playback" showsHorizontalScrollIndicator="NO" editable="NO" text="История изменений:" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBX-HY-Mbr">
+                                <rect key="frame" x="27" y="88" width="339" height="105"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="105" id="dQJ-Vt-dlP"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OsS-uh-IEf" firstAttribute="leading" secondItem="s0e-D6-etf" secondAttribute="trailing" constant="137" id="5Jk-bq-bYW"/>
+                            <constraint firstItem="2Xh-od-Kds" firstAttribute="bottom" secondItem="OsS-uh-IEf" secondAttribute="bottom" id="5Z4-LV-nhn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OsS-uh-IEf" secondAttribute="trailing" id="89u-YX-27g"/>
+                            <constraint firstItem="4M3-qJ-fos" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9I9-ux-IDN"/>
+                            <constraint firstItem="CBX-HY-Mbr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="88" id="HcB-il-MLo"/>
+                            <constraint firstItem="PfH-ot-qTD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="2.5" id="MOS-UM-duE"/>
+                            <constraint firstItem="CBX-HY-Mbr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="OSn-ZE-Zm2"/>
+                            <constraint firstItem="2Xh-od-Kds" firstAttribute="centerX" secondItem="4M3-qJ-fos" secondAttribute="centerX" id="QuD-kp-qEf"/>
+                            <constraint firstItem="PfH-ot-qTD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="344" id="Rch-uN-OgJ"/>
+                            <constraint firstItem="PfH-ot-qTD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="118" id="Ttr-Yd-Kn9"/>
+                            <constraint firstItem="4M3-qJ-fos" firstAttribute="top" secondItem="PfH-ot-qTD" secondAttribute="bottom" constant="35" id="Y7N-Dc-MDe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="s0e-D6-etf" secondAttribute="bottom" constant="32" id="aMo-LB-80L"/>
+                            <constraint firstItem="s0e-D6-etf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="bb6-kU-Z5a"/>
+                            <constraint firstItem="2Xh-od-Kds" firstAttribute="centerX" secondItem="CBX-HY-Mbr" secondAttribute="centerX" id="kUr-Ge-JqH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2Xh-od-Kds" secondAttribute="bottom" constant="32" id="l3B-jN-Abl"/>
+                            <constraint firstItem="CBX-HY-Mbr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lNN-L9-bf4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OsS-uh-IEf" secondAttribute="bottom" constant="32" id="ocu-z1-wCZ"/>
+                            <constraint firstItem="CBX-HY-Mbr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-30" id="oeh-EQ-awj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="countLabel" destination="4M3-qJ-fos" id="B89-gi-PRe"/>
+                        <outlet property="historyTextView" destination="CBX-HY-Mbr" id="iS3-P5-XQY"/>
+                        <outlet property="minusButton" destination="s0e-D6-etf" id="8G8-ds-pmz"/>
+                        <outlet property="plusButton" destination="OsS-uh-IEf" id="M4j-zz-m14"/>
+                        <outlet property="trashButton" destination="2Xh-od-Kds" id="Qew-Uw-2h8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138.1679389312977" y="130.98591549295776"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="trash.fill" catalog="system" width="117" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
